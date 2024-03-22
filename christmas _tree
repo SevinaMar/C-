@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void asteri(int a);
+
+int main ()
+{   int rows, i;
+    cout<< "Let's make a christmas tree. How many rows do you want it to be?  ";
+    cin >> rows;
+    
+    for (i=0;i<rows;i++)
+        {   cout<<setw(30-i/2);
+            asteri(i);
+            cout<<endl;
+        }
+return 0;        
+}
+void asteri(int a)
+{   for(int i=0;i<a;i++)
+        {if(a%2)
+            {cout<<"*";
+            }
+        else
+            {cout<<",";
+            }}
+}
