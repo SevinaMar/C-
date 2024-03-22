@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{   int i,dec, bin[8];
+    cout<<"Enter number(0-255) to turn into binary:  ";
+    cin>> dec;
+     int temp=dec;
+     for (i=7;i>=0;i--)
+        {   bin[i]=temp%2;
+            temp=temp/2;
+        }
+cout<<dec<< " in binary is ";     
+    for (i=0;i<8;i++)
+        {cout<<bin[i];}
+return 0;
+}
