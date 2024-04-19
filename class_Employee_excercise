@@ -1,0 +1,146 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee
+{	string name;
+	string address;
+	int kids;
+	int salary;
+	float benefit;
+public:
+	int arr[5],i;
+	Employee()
+		{	name="**ENTER NAME**";
+			address="**ENTER ADRESS**";
+			salary=0;
+			kids=0;
+				for(i=0;i<5;i++)
+  				{arr[i]=0;};
+		};	
+	Employee(string n,string a, int s)
+		{	name=n;
+			address=a;
+			salary=s;
+			kids=0;
+				for(i=0;i<5;i++)
+					{arr[i]=0;};
+			};	
+	~Employee()
+		{cout<<endl<<"destrustor_activated"<<endl;		}
+		
+	void add_benefit()
+	{	  if (kids==0)
+				{benefit=0;
+					cout<<"They get no additional benefit."<<endl;		}
+			else if(kids<=2)
+				{benefit=200;
+				cout<<"They get a benefit of "<<benefit<<" euros."<<endl;
+				salary+=benefit;}
+			else
+				{benefit=kids*60;
+				cout<<"They get a benefit of "<<benefit<<" euros."<<endl;
+				salary+=benefit;	}		}
+		
+	void set_name(string n)
+		{ name=n;	};		
+	void set_address(string a)
+		{ address=a;	};
+	void set_salary(int s)
+		{salary=s;	};
+	void set_kids(int k)
+		{ kids=k;	};	
+		
+	string get_name()
+		{return name; };
+	string get_address()
+		{return address;	};
+	int get_salary()
+		{return salary;	};	
+	int get_kids()
+		{return kids; };
+	float get_benefit()
+		{return benefit;};	
+
+	void display()
+		{cout<< name<<" lives in "<<address<<" and their salary is "<<salary<<" euros."<<endl;}	
+	void display_kids()
+		{cout<<"They have "<<kids<<" children."<<endl;	}	
+	void display_sales()	
+		{cout<<"Their sales are: "<<endl;
+		int i;
+		for(i=0;i<5;i++)
+			{cout<<arr[i]<<" items for the "<<i+1<<" month."<<endl;}	}	
+	void raise(int x)
+		{ salary+=x;	};
+};
+
+int main()
+{	int mis8os, af3hsh, paidia, i=0;
+	string onoma, dief8unsh;
+	float mo;
+	
+	Employee two("Kwnstantinou", "Athens", 950);
+	two.display();
+	cout<<"Do they have kids? Enter zero for NO or the numbers of their children: "<<endl;
+	cin>>paidia;
+	two.set_kids(paidia);
+	two.add_benefit();
+	cout<<"Their salary now is "<<two.get_salary()<<" euros."<<endl;
+
+	/*if(two.get_kids()>0)
+		{ for(i=two.get_kids();i>0;i--)	
+			{two.raise(50);			}
+			cout<<"They got kids benefit.";	}           ANOTHER WAY TO CALCULATE THE KIDS BENEFIT*/
+
+	mis8os=two.get_salary();
+	if(mis8os<=800)
+		{cout<<"They get a raise of 100 euros."<<endl;
+			two.raise(100); }
+	else
+		{cout<<"They get a raise of 200 euros."<<endl;
+			two.raise(200);	}	
+	cout<<"Their salary now is "<<two.get_salary()<<" euros."<<endl;		
+
+	cout<<endl<<endl;	
+	Employee one;
+	one.display();
+	cin>>onoma>>dief8unsh>>mis8os;
+	one.set_name(onoma);
+	one.set_address(dief8unsh);
+	one.set_salary(mis8os);
+	cout<<"Do they have kids? Enter zero for NO or the numbers of their children: "<<endl;
+	cin>>paidia;
+	one.set_kids(paidia);
+	one.add_benefit();
+	cout<<"Their salary now is "<<one.get_salary()<<" euros."<<endl;
+	cout<<endl;
+	cout<<"Enter sales for employee one: "<<endl;
+		for (i=0;i<5;i++)	
+		{cin>>one.arr[i];
+		}
+	one.display_sales();
+	cout<<"Give that employee, a raise: ";
+	cin>>af3hsh;
+	one.raise(af3hsh);
+	cout<<"Their salary now is "<<one.get_salary()<<" euros."<<endl;
+
+cout<<endl<<endl;	
+	Employee three;
+	cout<<"Enter data (name, address and salary) for the third employee: "<<endl;
+	cin>>onoma>>dief8unsh>>mis8os;
+	three.set_name(onoma);
+	three.set_address(dief8unsh);
+	three.set_salary(mis8os);
+	cout<<"Do they have kids? Enter zero for NO or the numbers of their children: "<<endl;
+	cin>>paidia;
+	three.set_kids(paidia);
+	three.add_benefit();
+cout<<"Their salary now is "<<three.get_salary()<<" euros."<<endl;
+
+cout<<endl<<endl;		
+	mo=(one.get_salary()+two.get_salary()+three.get_salary())/3.0;
+	cout<<"mo="<<one.get_salary()<<"+"<<two.get_salary()<<"+"<<three.get_salary()<<"/3"<<endl;
+	cout<<"The average salary is "<<mo<<endl;   	
+return 0;	
+}
